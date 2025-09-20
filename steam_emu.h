@@ -7,8 +7,9 @@ extern "C" {
 
 #include <stdbool.h>
 
-/* Apenas a declaração */
+// Funções
 __declspec(dllexport) bool SteamAPI_Init(void);
+__declspec(dllexport) bool SteamAPI_InitSafe(void);
 
 #ifdef __cplusplus
 }
