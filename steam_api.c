@@ -34,3 +34,15 @@ __declspec(dllexport) bool SteamAPI_InitSafe(void) {
 __declspec(dllexport) const char *GetPersonaName(void) {
     return nome;
 }
+
+__declspec(dllexport) bool SteamAPI_GetHSteamPipe(void) {
+    return true;
+}
+
+__declspec(dllexport) bool SteamAPI_GetSteamInstallPath(void) {
+    return "//Path//";
+}
+
+__declspec(dllexport) const char *SteamAPI_GetHSteamUser(void) {
+    return nome;
+}
