@@ -1,12 +1,36 @@
 #include "steam_emu.h"
+#include <stdio.h>
+#include <stdbool.h>
 
-bool SteamAPI_Init(void) {
-    return true; // stub: sempre inicializa
+// variável global
+static char nome[128] = "Mr. Grep"; // valor padrão
+
+// inicializador simples
+static void carregar_nome(void) {
+    FILE *user = fopen("username.txt", "r");
+    if (user) {
+        if (fgets(nome, sizeof(nome), user)) {
+            for (char *p = nome; *p; p++) {
+                if (*p == '\n' || *p == '\r') {
+                    *p = '\0';
+                    break;
+                }
+            }
+        }
+        fclose(user);
+    }
 }
-bool SteamAPI_InitSafe(void) {
+
+// --- Funções exportadas ---
+__declspec(dllexport) bool SteamAPI_Init(void) {
+    carregar_nome(); // tenta carregar nome do arquivo
     return true;
-    return "Safe Init";
 }
 
-// gcc -shared -o steam_api.dll steam_api.c "-Wl,--out-implib,libsteam_api.a"
-// gcc -shared -o steam_api64.dll steam_api.c "-Wl,--out-implib,libsteam_api.a"
+__declspec(dllexport) bool SteamAPI_InitSafe(void) {
+    return true;
+}
+
+__declspec(dllexport) const char *GetPersonaName(void) {
+    return nome;
+}
