@@ -14,4 +14,4 @@ __declspec(dllexport) bool SteamAPI_Init(void);
 }
 #endif
 
-#endif /* STEAM_API_H */
+#endif /* STEAM_EMU_H */
