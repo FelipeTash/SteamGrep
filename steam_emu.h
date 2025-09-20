@@ -10,7 +10,7 @@ extern "C" {
 // Funções
 __declspec(dllexport) bool SteamAPI_Init(void);
 __declspec(dllexport) bool SteamAPI_InitSafe(void);
-
+__declspec(dllexport) const char *GetPersonaName(void);
 #ifdef __cplusplus
 }
 #endif
