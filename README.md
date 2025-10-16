@@ -1,5 +1,8 @@
 ## SteamGrep
 
+![Static Badge](https://img.shields.io/badge/SteamGrep-blue?badgeContent)
+![Static Badge](https://img.shields.io/badge/Versão-0.5-green?badgeContent)
+
 ### O que é SteamGrep?
 SteamGrep é um emulador da api da steam.
 ### Como funciona e como posso usar?
